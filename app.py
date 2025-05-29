@@ -103,6 +103,9 @@ def analyze_dream():
         'kpi_scores': kpi_scores
     })
 
-# Run the Flask app
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    debug = os.environ.get("FLASK_DEBUG", "0") == "1"
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=debug)
+
