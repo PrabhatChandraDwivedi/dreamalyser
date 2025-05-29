@@ -103,6 +103,9 @@ def analyze_dream():
         'kpi_scores': kpi_scores
     })
 
+@app.route('/')
+def home():
+    return "Dream Analyzer API is running!", 200
 
 if __name__ == '__main__':
     import os
