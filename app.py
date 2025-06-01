@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from typing import Iterator
 import re
+import os
 import random
 from phi.agent import Agent, RunResponse
 from phi.model.openai.like import OpenAILike
@@ -14,7 +15,7 @@ dream_agent = Agent(
     role="You are a dream analysis expert.",
     model=OpenAILike(
         id="deepseek-r1-distill-llama-70b",
-        api_key="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",
+        api_key=os.environ["LLM_API_KEY"],
         base_url="https://api.groq.com/openai/v1",
     ),
     instructions=[
